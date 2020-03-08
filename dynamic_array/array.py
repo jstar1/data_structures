@@ -11,6 +11,11 @@ class DynamicArray:
 
     def  __len__(self):
         return self._n
+    
+    def __getitem__(self, k):
+        if 0 <= k < self._n:
+            raise IndexError('invalid index')
+        return self.dynamic_array[k]
 
     def _make_dynamic_array(self, capacity):
         return (capacity * ctypes.py_object)()
