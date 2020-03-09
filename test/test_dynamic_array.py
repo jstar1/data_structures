@@ -20,6 +20,10 @@ class TestDynamicArray(unittest.TestCase):
         self.array.append(1)
         self.assertEqual(self.array[0] == 1, True)
 
+    def test_extend(self):
+        self.array.extend([1, 2, 3])
+        self.assertEqual(len(self.array) == 3, True)
+ 
     def test_pop(self):
         self.array.append(1)
         self.assertEqual(self.array.pop() == 1, True)
