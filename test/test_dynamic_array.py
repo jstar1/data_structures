@@ -16,6 +16,10 @@ class TestDynamicArray(unittest.TestCase):
             self.array[10]
         self.assertTrue('invalid index' in str(context.exception))
 
+    def  test_append(self):
+        self.array.append(1)
+        self.assertEqual(self.array[0] == 1, True)
+
 
 if __name__ == '__main__':
     unittest.main()    
