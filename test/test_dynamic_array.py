@@ -24,5 +24,11 @@ class TestDynamicArray(unittest.TestCase):
         self.array.append(1)
         self.assertEqual(self.array.pop() == 1, True)
 
+    def test_pop_failure(self):
+        with self.assertRaises(IndexError) as context:
+           self.array.pop(20)
+        self.assertTrue('invalid index' in str(context.exception)) 
+
+
 if __name__ == '__main__':
     unittest.main()    
