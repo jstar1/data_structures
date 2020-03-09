@@ -20,6 +20,9 @@ class TestDynamicArray(unittest.TestCase):
         self.array.append(1)
         self.assertEqual(self.array[0] == 1, True)
 
+    def test_pop(self):
+        self.array.append(1)
+        self.assertEqual(self.array.pop() == 1, True)
 
 if __name__ == '__main__':
     unittest.main()    

@@ -7,7 +7,7 @@ class DynamicArray:
     def __init__(self):
         self._n = 0 # count of actual elements
         self._capacity = 1 # default arracy capacity
-        self.dynamic_array = self._make_dynamic_array(self._capacity) # init array
+        self._dynamic_array = self._make_dynamic_array(self._capacity) # init array
 
     def  __len__(self):
         return self._n
@@ -15,20 +15,49 @@ class DynamicArray:
     def __getitem__(self, k):
         if not 0 <= k < self._n:
             raise IndexError('invalid index')
-        return self.dynamic_array[k]
+        return self._dynamic_array[k]
 
     def append(self, obj):
         if self._n == self._capacity:
             self._resize(2 * self._capacity)
-        self.dynamic_array[self._n] = obj
+        self._dynamic_array[self._n] = obj
         self._n += 1
     
     def _resize(self, new_capacity):
         bigger_array = self._make_dynamic_array(new_capacity)
         for i in range(self._n):
             bigger_array[i] = self.dynamic_array[i]
-        self.dynamic_array = bigger_array
+        self._dynamic_array = bigger_array
         self._capacity = new_capcaity    
+
+    def pop(self, pos=None):
+        if len(self._dynamic_array) == 0:
+            raise IndexError('pop from empty list')
+        del_val = None
+        if pos == None or pos == self._n  - 1:
+            del_val = self._dynamic_array[self._n - 1]
+            self._dynamic_array[self._n - 1] == None
+            self._n -= 1
+            return del_val
+        if 0 <= pos < self._n:
+            for j in range(pos, self._n - 1):
+                if j == pos:      
+                    del_val = self._dyanmic_array[j]
+                self._dynamic_array[j] = self._dynamic_array[j+1]
+            self.dynamic_array[self._n - 1] = None
+            self._n -= 1
+            return del_val 
+        raise IndexError('invalid index')
+    
+    def remove(self, value):
+        for i in range(self._n):
+            if self._dynamic_array[i] == value:
+                for j in range(i, self._n - 1):
+                    self._dynamic_array[j] = self._dynamic_array[j+1]
+                self._dynamic_array[self._n - 1] = None
+                self._n -= 1
+                return
+        raise ValueError('value not found')
 
     def _make_dynamic_array(self, capacity):
         return (capacity * ctypes.py_object)()
