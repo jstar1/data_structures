@@ -17,8 +17,8 @@ class DynamicArray:
             raise IndexError("invalid index")
         return self._dynamic_array[k]
 
-    def __str__(self):
-        return str(self.dynamic_array[: self.__len__])
+    def __repr__(self):
+        return str(self._dynamic_array[: self._n])
 
     def append(self, obj):
         if self._n == self._capacity:
@@ -68,3 +68,4 @@ class DynamicArray:
 
     def _make_dynamic_array(self, capacity):
         return (capacity * ctypes.py_object)()
+
