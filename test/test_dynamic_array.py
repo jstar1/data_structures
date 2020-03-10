@@ -46,6 +46,12 @@ class TestDynamicArray(unittest.TestCase):
         self.array.extend([1, 2, 3, 4, 5])
         self.assertEqual(eval(repr(self.array)) == [1, 2, 3, 4, 5], True)
 
+    def test_insert(self):
+        self.array.extend([1, 2, 4, 5])
+        self.array.insert(2, 3) 
+        self.assertEqual(eval(repr(self.array)) == [1, 2, 3, 4, 5], True)
+
 
 if __name__ == "__main__":
+
     unittest.main()

@@ -29,7 +29,15 @@ class DynamicArray:
     def extend(self, iterable=[]):
         for ele in iterable:
             self.append(ele)
-
+    
+    def insert(self, index, obj):
+        if self._n == self._capacity:
+            self._resize(2 * self._capacity)
+        for j in range(self._n, index, - 1):
+            self._dynamic_array[j] = self._dynamic_array[j-1]
+        self._dynamic_array[index] = obj
+        self._n += 1
+        
     def _resize(self, new_capacity):
         bigger_array = self._make_dynamic_array(new_capacity)
         for i in range(self._n):
