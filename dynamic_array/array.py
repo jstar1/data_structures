@@ -18,7 +18,7 @@ class DynamicArray:
         return self._dynamic_array[k]
 
     def __repr__(self):
-        return str(self._dynamic_array[: self._n])
+        return str(self._dynamic_array[:self._n])
 
     def append(self, obj):
         if self._n == self._capacity:
@@ -51,7 +51,7 @@ class DynamicArray:
         del_val = None
         if pos is None or pos == self._n - 1:
             del_val = self._dynamic_array[self._n - 1]
-            self._dynamic_array[self._n - 1] is None
+            self._dynamic_array[self._n - 1] = None
             self._n -= 1
             return del_val
         if 0 <= pos < self._n:
