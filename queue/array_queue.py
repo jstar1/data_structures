@@ -45,3 +45,7 @@ class ArrayQueue:
             self._data[k] = old[walk]
             walk = (1 + walk) % len(old)
         self._front = 0 
+
+
+class Empty(Exception):
+    pass
