@@ -5,10 +5,13 @@ class ArrayStack:
     def __init__(self):
         self.data = []
 
-    def __len__(self, data):
-        return len(data)
+    def __len__(self):
+        return len(self.data)
 
-    def is_empty(self, data):
+    def __repr__(self):
+        return repr(self.data)
+
+    def is_empty(self):
         return len(self.data) == 0
 
     def push(self, item):

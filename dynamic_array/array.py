@@ -76,4 +76,3 @@ class DynamicArray:
 
     def _make_dynamic_array(self, capacity):
         return (capacity * ctypes.py_object)()
-
