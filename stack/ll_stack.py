@@ -20,7 +20,7 @@ class LinkedStack:
         current = self._head
         output = ""
         while current:
-            output += str(current) + " -> "
+            output += repr(current._element) + " -> "
             current = current._next
         return output
 
